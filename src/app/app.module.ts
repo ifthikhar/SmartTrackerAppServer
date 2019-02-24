@@ -11,7 +11,8 @@ import {HttpClientModule} from '@angular/common/http';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { NoteComponent } from './notes/note/note.component';
 import { NotetextfilterPipe } from './shared/notetextfilter.pipe';
-
+import { LoginComponent } from './login/login.component';
+import  {ReactiveFormsModule} from '@angular/forms';
 
 const appRoutes: Routes = [
   {
@@ -24,13 +25,15 @@ const appRoutes: Routes = [
   },
   {
     path: '',
-    component: NotesComponent,
+    component: LoginComponent,
     pathMatch: 'full'
   },
   {
     path: '**',
     component: PageNotFoundComponent
-  }
+  },
+
+
 ];
 @NgModule({
   declarations: [
@@ -40,12 +43,14 @@ const appRoutes: Routes = [
     NotesComponent,
     PageNotFoundComponent,
     NoteComponent,
-    NotetextfilterPipe
+    NotetextfilterPipe,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     RouterModule.forRoot(appRoutes, {enableTracing: true})
   ],
