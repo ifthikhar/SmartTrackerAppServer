@@ -4,6 +4,7 @@ import {FeedbackViewModel} from '../feedback/feedback.component';
 import {Notebook} from '../notes/model/notebook';
 import {Observable} from 'rxjs';
 import {Note} from '../notes/model/note';
+import {User} from '../notes/model/user';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,8 @@ export class ApiserviceService {
   private NOTES_BY_NOTEBOOK_URL = `${this.BASE_URL}/notes/byNotebook/`;
   private SAVE_UPDATE_NOTE_URL = `${this.BASE_URL}/notes`;
   private DELETE_NOTE_URL = `${this.BASE_URL}/notes/`;
-
+  private REGISTER_URL = `${this.BASE_URL}/register/`;
+  private LOGIN_URL = `${this.BASE_URL}/register/checkLogin`;
   constructor(private http: HttpClient) {
 
   }
@@ -51,11 +53,20 @@ export class ApiserviceService {
     return this.http.post<Note>(this.SAVE_UPDATE_NOTE_URL, note);
   }
 
-  deleteNote(noteId: string): Observable<any>{
+  deleteNote(noteId: string): Observable<any> {
     return this.http.delete(this.DELETE_NOTE_URL + noteId);
   }
 
+  registerUser(user: User): Observable<any> {
 
+     return this.http.post<User>(this.REGISTER_URL , user);
+
+
+  }
+ /* checkUser(user: User): Observable<any> {
+    return this.http.get(this.REGISTER_URL + user);
+
+  }*/
 
 
 }

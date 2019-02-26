@@ -11,8 +11,9 @@ import {HttpClientModule} from '@angular/common/http';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { NoteComponent } from './notes/note/note.component';
 import { NotetextfilterPipe } from './shared/notetextfilter.pipe';
+import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
-import  {ReactiveFormsModule} from '@angular/forms';
+import {ReactiveFormsModule} from '@angular/forms';
 
 const appRoutes: Routes = [
   {
@@ -32,6 +33,11 @@ const appRoutes: Routes = [
     path: '**',
     component: PageNotFoundComponent
   },
+  {
+    path: 'l',
+    component: LoginComponent,
+    pathMatch: 'full'
+  }
 
 
 ];
@@ -44,6 +50,7 @@ const appRoutes: Routes = [
     PageNotFoundComponent,
     NoteComponent,
     NotetextfilterPipe,
+    RegistrationComponent,
     LoginComponent
   ],
   imports: [
