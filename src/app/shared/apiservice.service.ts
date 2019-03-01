@@ -63,10 +63,10 @@ export class ApiserviceService {
 
 
   }
- /* checkUser(user: User): Observable<any> {
-    return this.http.get(this.REGISTER_URL + user);
+  checkUser(user: User): Observable<any> {
+    return this.http.post<User>(this.LOGIN_URL , user);
 
-  }*/
+  }
 
 
 }

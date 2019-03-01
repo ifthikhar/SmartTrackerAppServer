@@ -34,8 +34,8 @@ const appRoutes: Routes = [
     component: PageNotFoundComponent
   },
   {
-    path: 'l',
-    component: LoginComponent,
+    path: 'reg',
+    component: RegistrationComponent,
     pathMatch: 'full'
   }
 
