@@ -14,7 +14,9 @@ import { NotetextfilterPipe } from './shared/notetextfilter.pipe';
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 import {ReactiveFormsModule} from '@angular/forms';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatDialogModule} from '@angular/material';
+import { FeedbackDialogComponent } from './DialogBox/feedback-dialog/feedback-dialog.component';
 const appRoutes: Routes = [
   {
     path: 'notes',
@@ -26,7 +28,7 @@ const appRoutes: Routes = [
   },
   {
     path: '',
-    component: LoginComponent,
+    component: RegistrationComponent,
     pathMatch: 'full'
   },
   {
@@ -34,9 +36,9 @@ const appRoutes: Routes = [
     component: PageNotFoundComponent
   },
   {
-    path: 'reg',
-    component: RegistrationComponent,
-    pathMatch: 'full'
+    path: 'login',
+    component: LoginComponent,
+
   }
 
 
@@ -51,7 +53,9 @@ const appRoutes: Routes = [
     NoteComponent,
     NotetextfilterPipe,
     RegistrationComponent,
-    LoginComponent
+    LoginComponent,
+    FeedbackDialogComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -59,9 +63,12 @@ const appRoutes: Routes = [
     HttpClientModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    RouterModule.forRoot(appRoutes, {enableTracing: true})
+    MatDialogModule,
+    RouterModule.forRoot(appRoutes, {enableTracing: true}),
+    BrowserAnimationsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [FeedbackDialogComponent]
 })
 export class AppModule { }
